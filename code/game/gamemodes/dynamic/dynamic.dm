@@ -105,7 +105,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	/// A number between -5 and +5.
 	/// A negative value will give a more peaceful round and
 	/// a positive value will give a round with higher threat.
-	var/threat_curve_centre = 0
+	var/threat_curve_centre = -2 // Fen Station, threat curve nerf
 
 	/// A number between 0.5 and 4.
 	/// Higher value will favour extreme rounds and
@@ -137,7 +137,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	var/waittime_h = 1800
 
 	/// Maximum amount of threat allowed to generate.
-	var/max_threat_level = 100
+	var/max_threat_level = 60 // Fen Station, raise back to 100 when we have more pop on server
 
 	/// The extra chance multiplier that a heavy impact midround ruleset will run next time.
 	/// For example, if this is set to 50, then the next heavy roll will be about 50% more likely to happen.
@@ -160,7 +160,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	/// For example, if `low_pop_maximum_threat` is 50, `low_pop_player_threshold` is 20,
 	/// and the number of readied players is 10, then the highest threat that can roll is
 	/// lerp(50, 100, 10 / 20), AKA 75.
-	var/low_pop_maximum_threat = 40
+	var/low_pop_maximum_threat = 16 // Fen Station, threat nerf for lowpop
 
 	/// The chance for latejoins to roll when ready
 	var/latejoin_roll_chance = 50
