@@ -68,6 +68,7 @@
 		FACEHAIR,
 		LIPS,
 		DRINKSBLOOD,
+		MUTCOLORS,
 	)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -80,10 +81,19 @@
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
 	default_mutant_bodyparts = list(
-		"legs" = "Normal Legs"
+		"legs" = "Normal Legs",
+		"tail" = "None",
+		"snout" = "None",
+		"horns" = "None",
+		"ears" = "None",
+		"taur" = "None",
+		"fluff" = "None",
+		"wings" = "None",
+		"head_acc" = "None",
+		"neck_acc" = "None"
 	)
 	exotic_bloodtype = "U"
-	use_skintones = TRUE
+	use_skintones = FALSE
 	mutantheart = /obj/item/organ/internal/heart/hemophage
 	mutantliver = /obj/item/organ/internal/liver/hemophage
 	mutantstomach = /obj/item/organ/internal/stomach/hemophage
@@ -98,9 +108,14 @@
 	var/blood_to_health_multiplier = 1
 	/// The current status of our tumor. If PULSATING_TUMOR_MISSING, all tumor-corrupted organs will start to decay rapidly. If PULSATING_TUMOR_INACTIVE, no enhanced regeneration.
 	var/tumor_status = PULSATING_TUMOR_MISSING
-
-	veteran_only = TRUE
-
+	bodypart_overrides = list(
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/mutant,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/mutant,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant,
+	)
 
 /datum/species/hemophage/check_roundstart_eligible()
 	if(check_holidays(HALLOWEEN))
