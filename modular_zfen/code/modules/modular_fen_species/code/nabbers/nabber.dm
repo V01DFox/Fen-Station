@@ -53,7 +53,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 10)
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT - 25)
-	speedmod = 0.75//Cannot wear shoes - therefor will almost always move slower than a max-mood human even with this.
+	speedmod = 0.55//Cannot wear shoes - therefor will almost always move slower than a max-mood human even with this.
 	coldmod = 0.4 //Carapace
 	heatmod = 2 //Cooks you alive
 	stunmod = 0.65 //Literally cannot wear armor
