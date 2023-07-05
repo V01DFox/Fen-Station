@@ -7,7 +7,7 @@
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
 	brute_reduction = 2 //-2 brute per hit
-	burn_reduction = -2 //+2 burn to all burn damage
+	burn_modifier = 1.15//+1.15x burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
 	burn_modifier = 2.5 //+250% burn
 
@@ -34,7 +34,7 @@
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
 	brute_reduction = 2 //-2 brute per hit
-	burn_reduction = -2 //+2 burn to all burn damage
+	burn_modifier = 1.15//+1.15x burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
 	burn_modifier = 2.5 //+250% burn
 
@@ -60,7 +60,7 @@
 	unarmed_damage_high = NABBER_PUNCH_HIGH
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	brute_reduction = 2 //-2 brute per hit
-	burn_reduction = -2 //+2 burn to all burn damage
+	burn_modifier = 1.15//+1.15x burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
 	burn_modifier = 2.5 //+250% burn
 
@@ -72,7 +72,7 @@
 	unarmed_damage_high = NABBER_PUNCH_HIGH
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	brute_reduction = 2 //-2 brute per hit
-	burn_reduction = -2 //+2 burn to all burn damage
+	burn_modifier = 1.15//+1.15x burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
 	burn_modifier = 2.5 //+250% burn
 
@@ -82,7 +82,7 @@
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
 	brute_reduction = 2 //-2 brute per hit
-	burn_reduction = -2 //+2 burn to all burn damage
+	burn_modifier = 1.15//+1.15x burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
 	burn_modifier = 2.5 //+250% burn
 
@@ -92,7 +92,7 @@
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
 	brute_reduction = 2 //-2 brute per hit
-	burn_reduction = -2 //+2 burn to all burn damage
+	burn_modifier = 1.15//+1.15x burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
 	burn_modifier = 2.5 //+250% burn
 
