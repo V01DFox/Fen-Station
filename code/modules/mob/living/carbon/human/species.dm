@@ -1243,12 +1243,16 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(atk_effect == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
 			if(damage >= 9)
 				target.force_say()
-			log_combat(user, target, "kicked")
-			target.apply_damage(damage * PUNCH_STAMINA_MULTIPLIER, STAMINA, affecting, armor_block) //SKYRAT EDIT ADDITION
-			target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
+			if(HAS_TRAIT(user, TRAIT_SHARPCLAWS))
+				target.apply_damage(damage*1.4, attack_type, affecting, armor_block, attack_direction = attack_direction, wound_bonus = 15,sharpness = SHARP_POINTY) //FENSTATION EDIT: CLAWED SPECIES WITH THIS TRAIT CAUSE PUNCTURES, BUT DO NO STAMINA.
+				log_combat(user, target, "clawed while down")
+			else
+				log_combat(user, target, "kicked")
+				target.apply_damage(damage * PUNCH_STAMINA_MULTIPLIER, STAMINA, affecting, armor_block) //SKYRAT EDIT ADDITION
+				target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
 		else//other attacks deal full raw damage + 1.5x in stamina damage
 			if(HAS_TRAIT(user, TRAIT_SHARPCLAWS))
-				target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = SHARP_POINTY) //FENSTATION EDIT: CLAWED SPECIES WITH THIS TRAIT CAUSE PUNCTURES, BUT DO NO STAMINA.
+				target.apply_damage(damage*2.8, attack_type, affecting, armor_block, attack_direction = attack_direction, wound_bonus = 15,sharpness = SHARP_POINTY) //FENSTATION EDIT: CLAWED SPECIES WITH THIS TRAIT CAUSE PUNCTURES, BUT DO NO STAMINA.
 				if(damage >= 9)
 					target.force_say()
 				log_combat(user, target, "clawed")

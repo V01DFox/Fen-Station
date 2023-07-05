@@ -1,5 +1,5 @@
-#define NABBER_PUNCH_LOW 3 // I hate to break it to you, but if nabbers are PUNCHING you - it isn't with their humanoid arms. It's with their hunting arms.
-#define NABBER_PUNCH_HIGH 5
+#define NABBER_PUNCH_LOW 4 // I hate to break it to you, but if nabbers are PUNCHING you - it isn't with their humanoid arms. It's with their hunting arms.
+#define NABBER_PUNCH_HIGH 7 //YEOWCH. Yeah. Getting hit is like being punched by a toolbox with damage multipliers.
 //Nabbers
 
 /obj/item/bodypart/head/mutant/nabber
