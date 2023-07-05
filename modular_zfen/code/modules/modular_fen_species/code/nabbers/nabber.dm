@@ -25,11 +25,16 @@
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_HARD_SOLES,
-		TRAIT_NO_SLIP_ALL,
-		TRAIT_CHUNKYFINGERS_IGNORE_BATON,
+		TRAIT_NO_SLIP_WATER,
+		TRAIT_CHUNKYFINGERS,
 		TRAIT_PUSHIMMUNE,
 		TRAIT_RESISTHIGHPRESSURE,
 		TRAIT_RESISTLOWPRESSURE,
+		TRAIT_SHARPCLAWS,
+		TRAIT_HARDLY_WOUNDED,
+		TRAIT_NAIVE, //GAS have trouble telling dead from living if its not their own.
+		TRAIT_PRIMITIVE, //Cannot use mechs
+		TRAIT_NOMOBSWAP, //They're big.
 		TRAIT_RADIMMUNE //Cope changes because GAS can't wear radsuits
 	)
 	no_equip_flags = ITEM_SLOT_FEET | ITEM_SLOT_OCLOTHING | ITEM_SLOT_SUITSTORE
@@ -54,10 +59,11 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 10)
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT - 25)
-	speedmod = 0.55//Cannot wear shoes - therefor will almost always move slower than a max-mood human even with this.
-	coldmod = 0.4 //Carapace
+	speedmod = 0.65//Cannot wear shoes - therefor will almost always move slower than a max-mood human even with this.
+	coldmod = 0.9 //Carapace provides some insulation.
 	heatmod = 2 //Cooks you alive
-	stunmod = 0.65 //Literally cannot wear armor
+	stunmod = 0.85 //Literally cannot wear armor
+	var/datum/action/innate/huntingarms/huntingarms
 	mutantbrain = /obj/item/organ/internal/brain/nabber
 	mutanteyes = /obj/item/organ/internal/eyes/nabber
 	mutantlungs = /obj/item/organ/internal/lungs/nabber
@@ -178,6 +184,8 @@
 	icon = 'modular_zfen/code/modules/organs/icons/nabber_organs.dmi'
 	icon_state = "lungs"
 
+	safe_oxygen_min = 20 //More oxy required
+	safe_nitro_min = 1 //Needs atleast 1kpa of nitrogen to breathe properly
 	cold_message = "You can't stand the freezing cold with every breath you take!"
 	cold_level_1_threshold = NABBER_COLD_THRESHOLD_1
 	cold_level_2_threshold = NABBER_COLD_THRESHOLD_2
@@ -214,6 +222,13 @@
 
 /datum/species/nabber/get_custom_worn_config_fallback(item_slot, obj/item/item)
 	return item.greyscale_config_worn_nabber_fallback
+
+/datum/species/nabber/on_species_gain(mob/living/carbon/new_nabber, datum/species/old_species, pref_load)
+	. = ..()
+	if(ishuman(new_nabber))
+		huntingarms = new
+		huntingarms.Grant(new_nabber)
+	new_nabber.AddElement(/datum/element/soft_landing)
 
 /datum/species/nabber/generate_custom_worn_icon(item_slot, obj/item/item, mob/living/carbon/human/human_owner)
 	. = ..()

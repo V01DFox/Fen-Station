@@ -1247,11 +1247,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.apply_damage(damage * PUNCH_STAMINA_MULTIPLIER, STAMINA, affecting, armor_block) //SKYRAT EDIT ADDITION
 			target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
 		else//other attacks deal full raw damage + 1.5x in stamina damage
-			target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
-			target.apply_damage(damage * PUNCH_STAMINA_MULTIPLIER, STAMINA, affecting, armor_block) //SKYRAT EDIT CHANGE: target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
-			if(damage >= 9)
-				target.force_say()
-			log_combat(user, target, "punched")
+			if(HAS_TRAIT(user, TRAIT_SHARPCLAWS))
+				target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = SHARP_POINTY) //FENSTATION EDIT: CLAWED SPECIES WITH THIS TRAIT CAUSE PUNCTURES, BUT DO NO STAMINA.
+				if(damage >= 9)
+					target.force_say()
+				log_combat(user, target, "clawed")
+			else
+				target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
+				target.apply_damage(damage * PUNCH_STAMINA_MULTIPLIER, STAMINA, affecting, armor_block) //SKYRAT EDIT CHANGE: target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
+				if(damage >= 9)
+					target.force_say()
+				log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= attacking_bodypart.unarmed_stun_threshold)
 			target.visible_message(span_danger("[user] knocks [target] down!"), \

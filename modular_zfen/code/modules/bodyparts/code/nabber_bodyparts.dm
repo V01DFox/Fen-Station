@@ -1,4 +1,4 @@
-#define NABBER_PUNCH_LOW 3 // Humanoid pair of hands is extremely weak and deals reduced damage.
+#define NABBER_PUNCH_LOW 3 // I hate to break it to you, but if nabbers are PUNCHING you - it isn't with their humanoid arms. It's with their hunting arms.
 #define NABBER_PUNCH_HIGH 5
 //Nabbers
 
@@ -6,10 +6,10 @@
 	icon_greyscale = BODYPART_ICON_NABBER
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
-	brute_reduction = 8 //-8 brute per hit
+	brute_reduction = 2 //-2 brute per hit
 	burn_reduction = -2 //+2 burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
-	burn_modifier = 1.75 //+75% burn
+	burn_modifier = 2.5 //+250% burn
 
 /obj/item/bodypart/head/mutant/nabber/Initialize(mapload)
 	worn_ears_offset = new(
@@ -33,10 +33,10 @@
 	icon_greyscale = BODYPART_ICON_NABBER
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
-	brute_reduction = 8 //-8 brute per hit
+	brute_reduction = 2 //-2 brute per hit
 	burn_reduction = -2 //+2 burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
-	burn_modifier = 1.75 //+75% burn
+	burn_modifier = 2.5 //+250% burn
 
 /obj/item/bodypart/chest/mutant/nabber/Initialize(mapload)
 	worn_back_offset = new(
@@ -58,10 +58,11 @@
 	limb_id = SPECIES_NABBER
 	unarmed_damage_low = NABBER_PUNCH_LOW
 	unarmed_damage_high = NABBER_PUNCH_HIGH
-	brute_reduction = 8 //-8 brute per hit
+	unarmed_attack_effect = ATTACK_EFFECT_CLAW
+	brute_reduction = 2 //-2 brute per hit
 	burn_reduction = -2 //+2 burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
-	burn_modifier = 1.75 //+75% burn
+	burn_modifier = 2.5 //+250% burn
 
 /obj/item/bodypart/arm/right/mutant/nabber
 	icon_greyscale = BODYPART_ICON_NABBER
@@ -69,30 +70,31 @@
 	limb_id = SPECIES_NABBER
 	unarmed_damage_low = NABBER_PUNCH_LOW
 	unarmed_damage_high = NABBER_PUNCH_HIGH
-	brute_reduction = 8 //-8 brute per hit
+	unarmed_attack_effect = ATTACK_EFFECT_CLAW
+	brute_reduction = 2 //-2 brute per hit
 	burn_reduction = -2 //+2 burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
-	burn_modifier = 1.75 //+75% burn
+	burn_modifier = 2.5 //+250% burn
 
 
 /obj/item/bodypart/leg/left/mutant/nabber
 	icon_greyscale = BODYPART_ICON_NABBER
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
-	brute_reduction = 8 //-8 brute per hit
+	brute_reduction = 2 //-2 brute per hit
 	burn_reduction = -2 //+2 burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
-	burn_modifier = 1.75 //+75% burn
+	burn_modifier = 2.5 //+250% burn
 
 
 /obj/item/bodypart/leg/right/mutant/nabber
 	icon_greyscale = BODYPART_ICON_NABBER
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	limb_id = SPECIES_NABBER
-	brute_reduction = 8 //-8 brute per hit
+	brute_reduction = 2 //-2 brute per hit
 	burn_reduction = -2 //+2 burn to all burn damage
 	brute_modifier = 0.75 //-0.25 brute damage
-	burn_modifier = 1.75 //+75% burn
+	burn_modifier = 2.5 //+250% burn
 
 
 #undef NABBER_PUNCH_LOW
