@@ -35,6 +35,7 @@
 		TRAIT_NAIVE, //GAS have trouble telling dead from living if its not their own.
 		TRAIT_PRIMITIVE, //Cannot use mechs
 		TRAIT_NOMOBSWAP, //They're big.
+		TRAIT_NOGUNS, //Noguns. Period.
 		TRAIT_RADIMMUNE //Cope changes because GAS can't wear radsuits
 	)
 	no_equip_flags = ITEM_SLOT_FEET | ITEM_SLOT_OCLOTHING | ITEM_SLOT_SUITSTORE
