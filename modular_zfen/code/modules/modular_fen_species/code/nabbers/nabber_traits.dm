@@ -18,7 +18,7 @@
 		to_chat(owner, span_bolddanger("You are now striking with your sharp appendages."))
 		owner.visible_message(span_bolddanger("[owner] raises their sharpened arms!")) //very clear if a GAS does this
 		ADD_TRAIT(owner, TRAIT_SHARPCLAWS, INNATE_TRAIT)
-		REMOVE_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT)
+		REMOVE_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, null) //Only way to get rid of this. Shitty but neccessary.
 	else
 		owner.visible_message(span_bolddanger("[owner] fails to raise their sharpened arms!")) //very clear if a GAS does this
 
@@ -30,6 +30,6 @@
 		to_chat(owner, span_bolddanger("You are now not striking with your sharp appendages."))
 		owner.visible_message(span_notice("[owner] lowers their sharpened arms!"))
 		ADD_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT)
-		REMOVE_TRAIT(owner, TRAIT_SHARPCLAWS, INNATE_TRAIT)
+		REMOVE_TRAIT(owner, TRAIT_SHARPCLAWS, null)
 	else
 		owner.visible_message(span_bolddanger("[owner] fails to lower their sharpened arms!")) //very clear if a GAS does this
