@@ -11,10 +11,10 @@
 		return
 
 /datum/action/innate/huntingarms/Activate()
-	active = TRUE
 	owner.balloon_alert(owner, "switching arms...")
 	owner.visible_message(span_warning("[owner] attempts to raise their sharp arms..."))
 	if(do_after(owner, owner, 4 SECONDS))
+		active = TRUE
 		to_chat(owner, span_bolddanger("You are now striking with your sharp appendages."))
 		owner.visible_message(span_bolddanger("[owner] raises their sharpened arms!")) //very clear if a GAS does this
 		ADD_TRAIT(owner, TRAIT_SHARPCLAWS, INNATE_TRAIT)
@@ -23,10 +23,10 @@
 		owner.visible_message(span_bolddanger("[owner] fails to raise their sharpened arms!")) //very clear if a GAS does this
 
 /datum/action/innate/huntingarms/Deactivate()
-	active = FALSE
 	owner.balloon_alert(owner, "switching arms...")
 	owner.visible_message(span_notice("[owner] attempts to lower their sharp arms..."))
 	if(do_after(owner, owner, 4 SECONDS))
+		active = FALSE
 		to_chat(owner, span_bolddanger("You are now not striking with your sharp appendages."))
 		owner.visible_message(span_notice("[owner] lowers their sharpened arms!"))
 		ADD_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT)
