@@ -14,14 +14,22 @@
 
 /datum/action/innate/huntingarms/Activate()
 	active = TRUE
-	ADD_TRAIT(owner, TRAIT_SHARPCLAWS, SPECIES_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, SPECIES_TRAIT) //Stops GAS from using things like scanners/etc with hunting arms out
-	to_chat(owner, span_bolddanger("You are now striking with your sharp appendages.")) //TODO: Make this delayed.
+	owner.balloon_alert(owner, "switching arms...")
+	owner.visible_message(span_warning("[owner] attempts to raise their sharp arms..."))
+	if(!do_after(owner, 3.5 SECONDS, target = src))
+		return FALSE
+	to_chat(owner, span_bolddanger("You are now striking with your sharp appendages."))
+	owner.visible_message(span_bolddanger("[owner] raises their sharpened arms!")) //very clear if a GAS does this
+	ADD_TRAIT(owner, TRAIT_SHARPCLAWS, INNATE_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT)
 
 /datum/action/innate/huntingarms/Deactivate()
 	active = FALSE
-	REMOVE_TRAIT(owner, TRAIT_SHARPCLAWS, SPECIES_TRAIT)
-	ADD_TRAIT(owner,TRAIT_ADVANCEDTOOLUSER, SPECIES_TRAIT)
-	to_chat(owner, span_green("You have stopped striking with your sharp appendages."))
-
-
+	owner.balloon_alert(owner, "switching arms...")
+	owner.visible_message(span_notice("[owner] attempts to lower their sharp arms..."))
+	if(!do_after(owner, 3.5 SECONDS, target = src))
+		return FALSE
+	to_chat(owner, span_bolddanger("You are now not striking with your sharp appendages."))
+	owner.visible_message(span_notice("[owner] lowers their sharpened arms!"))
+	ADD_TRAIT(owner, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_SHARPCLAWS, INNATE_TRAIT)
