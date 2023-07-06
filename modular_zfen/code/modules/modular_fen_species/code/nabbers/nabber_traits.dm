@@ -9,8 +9,6 @@
 	. = ..()
 	if(!owner)
 		return
-	if (!active)
-		Activate()
 
 /datum/action/innate/huntingarms/Activate()
 	active = TRUE
