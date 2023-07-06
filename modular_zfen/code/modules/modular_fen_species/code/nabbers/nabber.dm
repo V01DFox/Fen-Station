@@ -63,6 +63,8 @@
 	heatmod = 2 //Cooks you alive
 	stunmod = 0.85 //Literally cannot wear armor
 	var/datum/action/innate/huntingarms/huntingarms
+	var/datum/action/cooldown/sneak/nabbersneak
+	var/datum/action/innate/eyelids/nabbereyes
 	mutantbrain = /obj/item/organ/internal/brain/nabber
 	mutanteyes = /obj/item/organ/internal/eyes/nabber
 	mutantlungs = /obj/item/organ/internal/lungs/nabber
@@ -176,7 +178,7 @@
 	desc = "Small orange orbs."
 	icon = 'modular_zfen/code/modules/organs/icons/nabber_organs.dmi'
 	icon_state = "eyes"
-	flash_protect = FLASH_PROTECTION_SENSITIVE
+	flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE
 
 /obj/item/organ/internal/lungs/nabber
 	name = "nabber lungs"
@@ -227,6 +229,10 @@
 	if(ishuman(new_nabber))
 		huntingarms = new
 		huntingarms.Grant(new_nabber)
+		nabbersneak = new
+		nabbersneak.Grant(new_nabber)
+		nabbereyes = new
+		nabbereyes.Grant(new_nabber)
 	new_nabber.AddElement(/datum/element/soft_landing)
 
 /datum/species/nabber/generate_custom_worn_icon(item_slot, obj/item/item, mob/living/carbon/human/human_owner)

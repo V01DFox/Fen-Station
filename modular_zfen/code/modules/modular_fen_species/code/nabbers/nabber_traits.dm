@@ -33,3 +33,39 @@
 		REMOVE_TRAIT(owner, TRAIT_SHARPCLAWS, null)
 	else
 		owner.visible_message(span_bolddanger("[owner] fails to lower their sharpened arms!")) //very clear if a GAS does this
+
+/datum/action/innate/eyelids
+	name = "Toggle Eyeshielding"
+	desc = "Allows you to blind yourself via opaque lenses in your eyes."
+
+/datum/action/innate/eyelids/Grant(mob/living/carbon/grant_to)
+	. = ..()
+	if(!owner)
+		return
+
+/datum/action/innate/eyelids/Activate()
+	var/obj/item/organ/internal/eyes/nabber/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+	owner.balloon_alert(owner, "closing eyeshields...")
+	owner.visible_message(span_warning("[owner] attempts to close opaque shielding over their eyes..."))
+	if(do_after(owner, 1.2 SECONDS))
+		active = TRUE
+		to_chat(owner, span_bolddanger("You are now blind until you use the ability again."))
+		owner.visible_message(span_bolddanger("[owner] closes their opaque shielding fully!")) //very clear if a GAS does this
+		eyes.tint = INFINITY
+		eyes.flash_protect = FLASH_PROTECTION_WELDER
+	else
+		owner.visible_message(span_bolddanger("[owner] fails to close their eyeshields!")) //very clear if a GAS does this
+
+/datum/action/innate/eyelids/Deactivate()
+	var/obj/item/organ/internal/eyes/nabber/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+	owner.balloon_alert(owner, "opening eyeshields...")
+	owner.visible_message(span_notice("[owner] attempts to open opaque shielding over their eyes..."))
+	if(do_after(owner, 0.8 SECONDS))
+		active = FALSE
+		to_chat(owner, span_bolddanger("You are able to see until you use the ability again."))
+		owner.visible_message(span_notice("[owner] opens their eye-sheilds."))
+		eyes.tint = 0
+		eyes.flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE //wow if only blindness was easier to do
+	else
+		owner.visible_message(span_bolddanger("[owner] fails to open their eyeshields.")) //very clear if a GAS does this
+
