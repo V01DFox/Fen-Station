@@ -25,6 +25,7 @@
 		OFFSET_FACE = list(0,0),
 		OFFSET_BELT = list(0,0),
 		OFFSET_BACK = list(0,0),
+		OFFSET_NABBER = list(5,0),
 		OFFSET_SUIT = list(0,0),
 		OFFSET_NECK = list(0,0),
 		OFFSET_ACCESSORY = list(0, 0),

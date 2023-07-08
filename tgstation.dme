@@ -335,6 +335,10 @@
 #include "code\__DEFINES\dcs\signals\signals_mob\signals_mob_spawner.dm"
 #include "code\__DEFINES\research\anomalies.dm"
 #include "code\__DEFINES\research\research_categories.dm"
+#include "code\__DEFINES\~fen_defines\dna.dm"
+#include "code\__DEFINES\~fen_defines\fen_helpers.dm"
+#include "code\__DEFINES\~fen_defines\fen_master_define.dm"
+#include "code\__DEFINES\~fen_defines\nabber_clothing.dm"
 #include "code\__DEFINES\~skyrat_defines\_organ_defines.dm"
 #include "code\__DEFINES\~skyrat_defines\access.dm"
 #include "code\__DEFINES\~skyrat_defines\actionspeed_modification.dm"
@@ -7135,4 +7139,7 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\sentinel.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\spitter.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
+#include "modular_zfen\code\modules\bodyparts\code\nabber_bodyparts.dm"
+#include "modular_zfen\code\modules\modular_fen_species\code\nabbers\nabber.dm"
+#include "modular_zfen\code\modules\modular_fen_species\code\nabbers\nabber_traits.dm"
 // END_INCLUDE
