@@ -50,6 +50,8 @@
 	if(do_after(owner, 1.2 SECONDS))
 		active = TRUE
 		to_chat(owner, span_bolddanger("You are now blind until you use the ability again."))
+		owner.overlay_fullscreen("blindness", /atom/movable/screen/fullscreen/blind)
+		owner.add_client_colour(/datum/client_colour/monochrome/blind)
 		owner.visible_message(span_bolddanger("[owner] closes their opaque shielding fully!")) //very clear if a GAS does this
 		eyes.tint = INFINITY
 		eyes.flash_protect = FLASH_PROTECTION_WELDER
@@ -62,7 +64,9 @@
 	owner.visible_message(span_notice("[owner] attempts to open opaque shielding over their eyes..."))
 	if(do_after(owner, 0.8 SECONDS))
 		active = FALSE
-		to_chat(owner, span_bolddanger("You are able to see until you use the ability again."))
+		to_chat(owner, span_bolddanger("You are now capable of seeing. Rejoice!"))
+		owner.clear_fullscreen("blindness")
+		owner.remove_client_colour(/datum/client_colour/monochrome/blind)
 		owner.visible_message(span_notice("[owner] opens their eye-sheilds."))
 		eyes.tint = 0
 		eyes.flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE //wow if only blindness was easier to do

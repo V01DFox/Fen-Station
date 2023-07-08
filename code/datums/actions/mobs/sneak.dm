@@ -22,7 +22,7 @@ MASSIVE FENSTATION EDIT - Balances base sneak
 	if(HAS_TRAIT(owner, TRAIT_SNEAK))
 		owner.balloon_alert(owner, "attempting to become visible...")
 		owner.visible_message(span_notice("[owner] attempts to fade in..."))
-		if(do_after(owner, 6 SECONDS))
+		if(do_after(owner, 0.5 SECONDS)) //far faster to de-cloak than it is to cloak.
 			owner.alpha = initial(owner.alpha)
 			to_chat(owner, span_noticealien("You reveal yourself!"))
 			REMOVE_TRAIT(owner, TRAIT_SNEAK, name)
