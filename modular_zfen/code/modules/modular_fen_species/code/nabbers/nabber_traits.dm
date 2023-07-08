@@ -67,7 +67,7 @@
 		to_chat(owner, span_bolddanger("You are now capable of seeing. Rejoice!"))
 		owner.clear_fullscreen("blindness")
 		owner.remove_client_colour(/datum/client_colour/monochrome/blind)
-		owner.visible_message(span_notice("[owner] opens their eye-sheilds."))
+		owner.visible_message(span_notice("[owner] opens their eye-shields."))
 		eyes.tint = 0
 		eyes.flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE //wow if only blindness was easier to do
 	else
